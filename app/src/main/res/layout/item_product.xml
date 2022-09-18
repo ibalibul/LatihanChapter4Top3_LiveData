@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
-    android:padding="16dp"
-    app:cardCornerRadius="10dp"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgProduct"
-        android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_launcher_background"/>
+    <data>
+        <variable
+            name="product"
+            type="com.iqbal.latihanchapter4top3_livedata.Product" />
 
-    <RelativeLayout
+    </data>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="16dp"
+        app:cardCornerRadius="10dp"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvnamaProduct"
-            android:text="Nama Product"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/tvhargaProduct"
-            android:text="Rp.1000"
-            android:layout_below="@+id/tvnamaProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            app:imageResource="@{product.gambarProduct}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvnamaProduct"
+                android:text="@{product.namaProduct}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvhargaProduct"
+                android:text='@{"Rp"+Integer.toString(product.hargaProduct)}'
+                android:layout_below="@+id/tvnamaProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

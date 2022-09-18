@@ -1,34 +1,55 @@
 package com.iqbal.latihanchapter4top3_livedata
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.iqbal.latihanchapter4top3_livedata.databinding.ItemProductBinding
 
-class AdapterProduct (val listproduct : ArrayList<Product>) : RecyclerView.Adapter<AdapterProduct.ViewHolder>() {
+class AdapterProduct (var listproduct : ArrayList<Product>) : RecyclerView.Adapter<AdapterProduct.ViewHolder>() {
 
-    class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
-        var namaProduct = view.findViewById<TextView>(R.id.tvnamaProduct)
-        var gambarProduct = view.findViewById<ImageView>(R.id.imgProduct)
-        var hargaProduct =  view.findViewById<TextView>(R.id.tvhargaProduct)
-        var detailProduct = view.findViewById<TextView>(R.id.isiProductDetail)
+    var onclick : ((Product)->Unit)? = null
+
+    class ViewHolder(var binding : ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bindproduct(itemProduct : Product){
+            binding.product = itemProduct
+            binding.LinearLayout.setOnClickListener(object : View.OnClickListener{
+
+
+                override fun onClick(view: View?) {
+                    var bundle =  Bundle()
+                    bundle.putString("namaProduct",itemProduct.namaProduct)
+                    bundle.putInt("gambarProduct",itemProduct.gambarProduct)
+//                    bundle.putInt("hargaProduct",itemProduct.hargaProduct)
+                    bundle.putInt("detailProduct",itemProduct.DetailProduct)
+                    val intent = Intent(view!!.context,DetailActivity::class.java)
+                    intent.putExtras(bundle)
+                    view.context.startActivity(intent)
+
+                }
+            })
+        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product,parent,false)
+       val view = ItemProductBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.namaProduct.text = listproduct[position].namaProduct
-        holder.gambarProduct.setImageResource(listproduct[position].gambarProduct)
+        holder.bindproduct(listproduct[position])
 
     }
 
     override fun getItemCount(): Int {
         return listproduct.size
+    }
+    fun setDataProduct(itemData : ArrayList<Product>){
+            this.listproduct = itemData
     }
 }

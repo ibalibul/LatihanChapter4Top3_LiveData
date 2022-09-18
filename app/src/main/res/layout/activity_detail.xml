@@ -1,69 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="productdetail"
+            type="com.iqbal.latihanchapter4top3_livedata.Product" />
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        
-        <FrameLayout
+        android:layout_height="match_parent"
+        tools:context=".DetailActivity">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imgProductDetail"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/hanpone"/>
+                android:layout_margin="16dp">
+
+                <ImageView
+                    android:id="@+id/imgProductDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/hanpone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#4D000000"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:text="5 photo"
+                    android:drawableStart="@drawable/ic_baseline_collections_24" />
+            </FrameLayout>
+
             <TextView
+                android:id="@+id/namaProductDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Apple iphone 13 pro "
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/hargaProductDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@{productdetail.hargaProduct}" />
+
+            <TextView
+                android:id="@+id/isiProductDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingMultiplier="1"
+                android:text="Handphone lipat di tahun 2022 handphone" />
+
+            <Button
+                android:id="@+id/btn_Order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="#4D000000"
-                android:drawablePadding="4dp"
-                android:gravity="center_vertical"
-                android:padding="8dp"
-                android:text="5 photo"
-                android:drawableStart="@drawable/ic_baseline_collections_24" />
-        </FrameLayout>
-        <TextView
-            android:id="@+id/namaProductDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Apple iphone 13 pro "
-            android:textSize="32sp" />
-        <TextView
-            android:id="@+id/hargaProductDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="$735" />
-        <TextView
-            android:id="@+id/isiProductDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:lineSpacingMultiplier="1"
-            android:text="Handphone lipat di tahun 2022 handphone" />
-    </LinearLayout>
-</ScrollView>
+                android:text="Order" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
