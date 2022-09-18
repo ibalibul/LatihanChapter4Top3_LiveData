@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">LatihanChapter4Top3_LiveData</string>
+
+    <!--   Desc Product yang di jual -->
+    <string name="Product_1tv">
+        Tv Digital Lebar 35 inches\n. Kumpulan iklan sosialisai Tv digital
+    </string>
+    <string name="Product_2ac">
+        AC Digin 2 Pk. untuk mendingan kan ruangan di setiap tempat
+    </string>
+    <string name="Product_3dispenser">
+        Dispenser Tingkat bagus untuk anak kos-kosan. daya lebih ringan
+    </string>
+    <string name="Product_4komputer">
+        Komputer Geming ready untuk semua Games dan lain-lain
+    </string>
+    <string name="Product_5mesincuci">
+       Mesin Cuci Dua pintu. mesin cuci sekali cuci langsung bersihhh
+    </string>
+    <string name="Product_6leptop">
+        leptop keren untuk kamu yang lagi nyari leptop untuk belajar programing
+    </string>
+    <string name="Product_7kulkas">
+        AC digin gererrrr....
+    </string>
+    <string name="Product_8dispenser2">
+        AC digin gererrrr....
+    </string>
+    <string name="Product_9handpone">
+        Handphone lipat di tahun 2022
+    </string>
+    <string name="Product_10antena">
+        Antena Digital untuk Tv kamu sepuya bersih maksimal
+    </string>
+
+</resources>
